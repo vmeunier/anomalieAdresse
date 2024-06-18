@@ -419,7 +419,7 @@ paths:
 
             * The `reason` field of the error response can contain information about the error.
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error
+          $ref: "#/components/schemas/Error"
 
     post:
       tags:
@@ -919,6 +919,10 @@ components:
             - CLOSED
             - REJECTED
             - CANCELED
+        relatedEntity:
+          type: array
+          items:
+            $ref: "#/components/schemas/RelatedBuilding"
         expectedResolutionDate:
           description: Date prévisionnelle de résolution du ticket.
             La valeur est renseignée par l'OI lors du passage à l'état `IN_PROGRESS`.
@@ -1518,3 +1522,6 @@ components:
             - anomalie
         id:
           description: Identifiant unique de l'anomalie.
+
+    Error:
+      $ref: "https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error"
