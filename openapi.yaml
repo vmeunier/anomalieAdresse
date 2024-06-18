@@ -1094,6 +1094,7 @@ components:
         - relatedEntity
       properties:
         "@baseType":
+          type: string
           default: "AnomalieAdresseUpdate"
         relatedEntity:
           description: |
@@ -1117,8 +1118,6 @@ components:
             Elle permet de rechercher plus efficacement les anomalies
             et de facilement différencier les traitement unitaires et en masse.
           readOnly: true
-        issues:
-          type: object
 
     AnomalieAdresseUpdateImb:
       description: |
