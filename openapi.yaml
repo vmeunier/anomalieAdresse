@@ -1506,6 +1506,3 @@ components:
             - anomalie
         id:
           description: Identifiant unique de l'anomalie.
-
-    Error:
-      $ref: "https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error"
