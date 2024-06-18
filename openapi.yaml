@@ -847,7 +847,7 @@ components:
         - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/TroubleTicket.openapi.yaml#/components/schemas/TroubleTicket
         - type: object
           discriminator:
-            propertyName: @type
+            propertyName: "@type"
             mapping:
               AnomalieAdresse.creation: "#/components/schemas/AnomalieAdresseCreation"
               AnomalieAdresse.newBuilding: "#/components/schemas/AnomalieAdresseNewBuilding"
