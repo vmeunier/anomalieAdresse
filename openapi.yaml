@@ -352,6 +352,7 @@ tags:
 paths:
   /anomalie-adresse:
     get:
+      operationId: getAllTroubleTickets
       tags:
         - TroubleTicket
         - OI
@@ -395,6 +396,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
+      operationId: countTroubleTickets
       summary: Count the number of trouble tickets
       description: Count the number of trouble tickets matching the given criteria.
       parameters:
@@ -423,6 +425,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
+      operationId: createTroubleTicket
       summary: Create a trouble ticket
       description: Create a trouble ticket
       requestBody:
@@ -473,6 +476,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
+      operationId: getTroubleTicket
       summary: Get a trouble ticket
       description: Get a trouble ticket
       parameters:
@@ -504,6 +508,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
+      operationId: updateTroubleTicket
       summary: Update a trouble ticket
       description: Update a trouble ticket
       requestBody:
@@ -529,6 +534,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
+      operationId: partialUpdateTroubleTicket
       summary: Partially update a trouble ticket
       description: Partially update a trouble ticket
       requestBody:
@@ -558,6 +564,7 @@ paths:
       tags:
         - Note
         - OI
+      operationId: getTroubleTicketNotes
       summary: Get all notes of a trouble ticket
       description: Get all notes of a trouble ticket
       parameters: *searchAndPaginateParameters
@@ -584,6 +591,7 @@ paths:
       tags:
         - Note
         - OI
+      operationId: countTroubleTicketNotes
       summary: Count the number of notes of a trouble ticket
       description: Count the number of notes of a trouble ticket matching the given criteria.
       parameters:
@@ -603,6 +611,7 @@ paths:
       tags:
         - Note
         - OI
+      operationId: createTroubleTicketNote
       summary: Create a note for a trouble ticket
       description: Create a note for a trouble ticket
       requestBody:
@@ -635,6 +644,7 @@ paths:
       tags:
         - Attachment
         - OI
+      operationId: getTroubleTicketAttachments
       summary: Get all attachments of a trouble ticket
       description: Get all attachments of a trouble ticket
       parameters: *searchAndPaginateParameters
@@ -661,6 +671,7 @@ paths:
       tags:
         - Attachment
         - OI
+      operationId: countTroubleTicketAttachments
       summary: Count the number of attachments of a trouble ticket
       description: Count the number of attachments of a trouble ticket matching the given criteria.
       parameters:
@@ -680,6 +691,7 @@ paths:
       tags:
         - Attachment
         - OI
+      operationId: createTroubleTicketAttachment
       summary: Create an attachment for a trouble ticket
       description: Create an attachment for a trouble ticket
       requestBody:
@@ -713,6 +725,7 @@ paths:
       tags:
         - Attachment
         - OI
+      operationId: downloadTroubleTicketAttachment
       summary: Download an attachment of a trouble ticket
       description: Download an attachment of a trouble ticket
       parameters:
@@ -737,6 +750,7 @@ paths:
       tags:
         - Event
         - OI
+      operationId: getTroubleTicketEvents
       summary: Get all events of all trouble tickets
       description: Get all events of all trouble tickets
       parameters: *searchAndPaginateParameters
@@ -762,6 +776,7 @@ paths:
       tags:
         - Event
         - OI
+      operationId: countTroubleTicketEvents
       summary: Count the number of events of all trouble tickets
       description: Count the number of events of all trouble tickets matching the given criteria.
       parameters:
@@ -780,6 +795,7 @@ paths:
       tags:
         - Event
         - OC
+      operationId: receoveTroubleTicketEvent
       summary: Receive an event for a trouble ticket
       description: Receive an event for a trouble ticket
       requestBody:
