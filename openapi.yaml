@@ -390,7 +390,7 @@ paths:
 
             * The `reason` field of the error response can contain information about the error.
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     head:
       tags:
@@ -419,7 +419,7 @@ paths:
 
             * The `reason` field of the error response can contain information about the error.
         default:
-          $ref: "#/components/schemas/Error"
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     post:
       tags:
@@ -466,7 +466,7 @@ paths:
 
             * Le champ `reason` de la réponse d'erreur doit contenir la liste des tickets en conflit séparés par des virgules.
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
   /anomalie-adresse/{AnomalieAdresseId}:
     parameters:
@@ -502,7 +502,7 @@ paths:
             This error occurs when the resource does not exist or is not visible by the user.
 
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     put:
       tags:
