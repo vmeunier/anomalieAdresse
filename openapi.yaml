@@ -407,17 +407,7 @@ paths:
           headers:
             X-Total-Count:
               $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-400
-          description: |
-            **Bad Request**
-
-            This error occurs when a query parameter or the body is invalid.
-
-            * The `reason` field of the error response can contain information about the error.
+        "400": *response400
         default:
           $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
@@ -728,7 +718,10 @@ paths:
         "200":
           description: The content of the attachment
           content:
-            application/octet-stream: {}
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
         "404": *response404
         default:
           $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
