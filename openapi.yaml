@@ -378,7 +378,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/AnomalieAdresseBase"
-        "400":
+        "400": &response400
           content:
             application/json:
               schema:
@@ -445,17 +445,7 @@ paths:
           headers:
             ETag:
               $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/update.openapi.yaml#/components/headers/ETag
-        "400": &response400
-          content:
-            application/json:
-              schema:
-                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-400
-          description: |
-            **Bad Request**
-
-            This error occurs when a query parameter or the body is invalid.
-
-            * The `reason` field of the error response can contain information about the error.
+        "400": *response400
         "403": &response403
           description: |
             **Forbidden**
@@ -991,6 +981,7 @@ components:
             * `MASSE`: cas qui concerne les anomalies en masse.
         code_oi: # Code ARCEP de l'OI.
           $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/CodeOperateurArcep
+
         code_oc: # Code ARCEP de l'OC.
           $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/CodeOperateurArcep
         externalId:
@@ -1485,12 +1476,10 @@ components:
       properties:
         "@referredType":
           type: string
-          enum:
-            - Building
+          default: "Building"
         role:
           type: string
-          enum:
-            - building
+          default: "building"
 
     RelatedAnomalie:
       allOf:
@@ -1498,11 +1487,9 @@ components:
       properties:
         "@referredType":
           type: string
-          enum:
-            - AnomalieAdresse
+          default: "AnomalieAdresse"
         role:
           type: string
-          enum:
-            - anomalie
+          default: "anomalie"
         id:
           description: Identifiant unique de l'anomalie.
