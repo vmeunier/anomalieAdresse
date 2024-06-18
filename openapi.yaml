@@ -308,7 +308,7 @@ info:
 
     Cette API utilise une architecture proxyfié pour la gestion des dépendances.
 
-    ![Proxyfied architecture schema](https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/schema/architecture.drawio.svg)
+    ![Proxyfied architecture schema](https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/schema/architecture.drawio.svg)
 
     * [TroubleTicket](https://before-interop.github.io/common/v1/?urls.primaryName=TroubleTicket)
     * [Attachment](https://before-interop.github.io/common/v1/?urls.primaryName=Attachment)
@@ -358,19 +358,19 @@ paths:
       summary: Get all trouble tickets
       description: Get all trouble tickets
       parameters: &searchAndPaginateParameters
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/parameters/limit
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/parameters/offset
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/parameters/sort
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/fields.openapi.yaml#/components/parameters/fields
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/filters.openapi.yaml#/components/parameters/filters
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/parameters/limit
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/parameters/offset
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/parameters/sort
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/fields.openapi.yaml#/components/parameters/fields
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/filters.openapi.yaml#/components/parameters/filters
       responses:
         "200":
           description: The list of trouble tickets
           headers:
             X-Total-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
             X-Result-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Result-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Result-Count
           content:
             application/json:
               schema:
@@ -381,7 +381,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/Error-400
+                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-400
           description: |
             **Bad Request**
 
@@ -389,7 +389,7 @@ paths:
 
             * The `reason` field of the error response can contain information about the error.
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Error.openapi.yaml#/components/schemas/Error
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error
 
     head:
       tags:
@@ -398,18 +398,18 @@ paths:
       summary: Count the number of trouble tickets
       description: Count the number of trouble tickets matching the given criteria.
       parameters:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/filters.openapi.yaml#/components/parameters/filters
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/filters.openapi.yaml#/components/parameters/filters
       responses:
         "200":
           description: The number of trouble tickets.
           headers:
             X-Total-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
         "400":
           content:
             application/json:
               schema:
-                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/Error-400
+                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-400
           description: |
             **Bad Request**
 
@@ -417,7 +417,7 @@ paths:
 
             * The `reason` field of the error response can contain information about the error.
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Error.openapi.yaml#/components/schemas/Error
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error
 
     post:
       tags:
@@ -441,12 +441,12 @@ paths:
                 $ref: "#/components/schemas/AnomalieAdresseBase"
           headers:
             ETag:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/update.openapi.yaml#/components/headers/ETag
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/update.openapi.yaml#/components/headers/ETag
         "400": &response400
           content:
             application/json:
               schema:
-                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/Error-400
+                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-400
           description: |
             **Bad Request**
 
@@ -463,7 +463,7 @@ paths:
 
             * Le champ `reason` de la réponse d'erreur doit contenir la liste des tickets en conflit séparés par des virgules.
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Error.openapi.yaml#/components/schemas/Error
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error
 
   /anomalie-adresse/{AnomalieAdresseId}:
     parameters:
@@ -476,7 +476,7 @@ paths:
       summary: Get a trouble ticket
       description: Get a trouble ticket
       parameters:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/fields.openapi.yaml#/components/parameters/fields
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/fields.openapi.yaml#/components/parameters/fields
       responses:
         "200":
           description: The trouble ticket
@@ -486,19 +486,19 @@ paths:
                 $ref: "#/components/schemas/AnomalieAdresseBase"
           headers:
             ETag:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/update.openapi.yaml#/components/headers/ETag
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/update.openapi.yaml#/components/headers/ETag
         "404": &response404
           content:
             application/json:
               schema:
-                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/Error-404
+                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-404
           description: |
             **Not Found**
 
             This error occurs when the resource does not exist or is not visible by the user.
 
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Error.openapi.yaml#/components/schemas/Error
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Error.openapi.yaml#/components/schemas/Error
 
     put:
       tags:
@@ -514,16 +514,16 @@ paths:
             schema:
               $ref: "#/components/schemas/AnomalieAdresseBase"
       parameters:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/update.openapi.yaml#/components/parameters/If-Match
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/update.openapi.yaml#/components/parameters/If-Match
       responses:
         "200": *troubleTicket201
         "400": *response400
         "403": *response403
         "404": *response404
         "412":
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/Error-412
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-412
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     patch:
       tags:
@@ -539,16 +539,16 @@ paths:
             schema:
               $ref: "#/components/schemas/AnomalieAdresseBase"
       parameters:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/update.openapi.yaml#/components/parameters/If-Match
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/update.openapi.yaml#/components/parameters/If-Match
       responses:
         "200": *troubleTicket201
         "400": *response400
         "403": *response403
         "404": *response404
         "412":
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/Error-412
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-412
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
   /anomalie-adresse/{AnomalieAdresseId}/note:
     parameters:
@@ -566,9 +566,9 @@ paths:
           description: The list of notes
           headers:
             X-Total-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
             X-Result-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Result-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Result-Count
           content:
             application/json:
               schema:
@@ -578,7 +578,7 @@ paths:
         "400": *response400
         "404": *response404
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     head:
       tags:
@@ -587,17 +587,17 @@ paths:
       summary: Count the number of notes of a trouble ticket
       description: Count the number of notes of a trouble ticket matching the given criteria.
       parameters:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/filters.openapi.yaml#/components/parameters/filters
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/filters.openapi.yaml#/components/parameters/filters
       responses:
         "200":
           description: The number of notes
           headers:
             X-Total-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
         "400": *response400
         "404": *response404
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     post:
       tags:
@@ -621,11 +621,11 @@ paths:
                 $ref: "#/components/schemas/Note"
           headers:
             ETag:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/update.openapi.yaml#/components/headers/ETag
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/update.openapi.yaml#/components/headers/ETag
         "400": *response400
         "404": *response404
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
   /anomalie-adresse/{AnomalieAdresseId}/attachment:
     parameters:
@@ -643,9 +643,9 @@ paths:
           description: The list of attachments
           headers:
             X-Total-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
             X-Result-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Result-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Result-Count
           content:
             application/json:
               schema:
@@ -655,7 +655,7 @@ paths:
         "400": *response400
         "404": *response404
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     head:
       tags:
@@ -664,17 +664,17 @@ paths:
       summary: Count the number of attachments of a trouble ticket
       description: Count the number of attachments of a trouble ticket matching the given criteria.
       parameters:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/filters.openapi.yaml#/components/parameters/filters
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/filters.openapi.yaml#/components/parameters/filters
       responses:
         "200":
           description: The number of attachments
           headers:
             X-Total-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
         "400": *response400
         "404": *response404
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     post:
       tags:
@@ -698,11 +698,11 @@ paths:
                 $ref: "#/components/schemas/Attachment"
           headers:
             ETag:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/update.openapi.yaml#/components/headers/ETag
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/update.openapi.yaml#/components/headers/ETag
         "400": *response400
         "404": *response404
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
   /anomalie-adresse/{AnomalieAdresseId}/attachment/{AttachmentId}/content:
     parameters:
@@ -716,11 +716,11 @@ paths:
       summary: Download an attachment of a trouble ticket
       description: Download an attachment of a trouble ticket
       parameters:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/tools/attachment/attachment.openapi.yaml#/components/parameters/If-Match
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/tools/attachment/attachment.openapi.yaml#/components/parameters/If-None-Match
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/tools/attachment/attachment.openapi.yaml#/components/parameters/If-Modified-Since
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/tools/attachment/attachment.openapi.yaml#/components/parameters/If-Unmodified-Since
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/tools/attachment/attachment.openapi.yaml#/components/parameters/Range
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/tools/attachment/attachment.openapi.yaml#/components/parameters/If-Match
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/tools/attachment/attachment.openapi.yaml#/components/parameters/If-None-Match
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/tools/attachment/attachment.openapi.yaml#/components/parameters/If-Modified-Since
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/tools/attachment/attachment.openapi.yaml#/components/parameters/If-Unmodified-Since
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/tools/attachment/attachment.openapi.yaml#/components/parameters/Range
       responses:
         "200":
           description: The content of the attachment
@@ -728,9 +728,9 @@ paths:
             application/octet-stream: {}
         "404": *response404
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
         "412":
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/Error-412
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-412
 
   /anomalie-adresse/event:
     get:
@@ -745,9 +745,9 @@ paths:
           description: The list of events
           headers:
             X-Total-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
             X-Result-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Result-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Result-Count
           content:
             application/json:
               schema:
@@ -756,7 +756,7 @@ paths:
                   $ref: "#/components/schemas/Event"
         "400": *response400
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     head:
       tags:
@@ -765,16 +765,16 @@ paths:
       summary: Count the number of events of all trouble tickets
       description: Count the number of events of all trouble tickets matching the given criteria.
       parameters:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/filters.openapi.yaml#/components/parameters/filters
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/filters.openapi.yaml#/components/parameters/filters
       responses:
         "200":
           description: The number of events
           headers:
             X-Total-Count:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/utils/paginate.openapi.yaml#/components/headers/X-Total-Count
         "400": *response400
         default:
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/default
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/default
 
     post:
       tags:
@@ -809,7 +809,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/responses/errors.openapi.yaml#/components/responses/Error-500
+                $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/responses/errors.openapi.yaml#/components/responses/Error-500
         "501":
             description: |
                 **Not Implemented**
@@ -844,7 +844,7 @@ components:
   schemas:
     AnomalieAdresseBase:
       allOf:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/TroubleTicket.openapi.yaml#/components/schemas/TroubleTicket
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/TroubleTicket.openapi.yaml#/components/schemas/TroubleTicket
         - type: object
           discriminator:
             propertyName: @type
@@ -975,12 +975,12 @@ components:
                 * `COMPLEX`: cas qui n'est pas un cas simple.
                 * `MASSE`: cas qui concerne les anomalies en masse.
             code_oi:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Interop.openapi.yaml#/components/schemas/CodeOperateurArcep
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/CodeOperateurArcep
               description: Code ARCEP de l'OI.
     
                 La valeur est renseignée par l'OC à la création du ticket.
             code_oc:
-              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Interop.openapi.yaml#/components/schemas/CodeOperateurArcep
+              $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/CodeOperateurArcep
               description: Code ARCEP de l'OC.
     
                 La valeur est renseignée par l'OC à la création du ticket.
@@ -1123,7 +1123,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Interop.openapi.yaml#/components/schemas/GeographicPoint
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/GeographicPoint
             "building.name":
               $ref: "#/components/schemas/IssueArray"
               description: |
@@ -1133,7 +1133,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Interop.openapi.yaml#/components/schemas/Building/properties/name
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/Building/properties/name
                 toBlank:
                   type: boolean
                   description: |
@@ -1150,7 +1150,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/city
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/city
             "building.address.postcode":
               $ref: "#/components/schemas/Issue"
               description: |
@@ -1160,7 +1160,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/postcode
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/postcode
             "building.address.streetName":
               $ref: "#/components/schemas/Issue"
               description: |
@@ -1170,7 +1170,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/streetName
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/streetName
             "building.address.streetNr":
               $ref: "#/components/schemas/IssueArray"
               description: |
@@ -1180,7 +1180,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/streetNr
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/streetNr
             "building.address.streetNrSuffix":
               $ref: "#/components/schemas/Issue"
               description: |
@@ -1190,7 +1190,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/streetNrSuffix
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/streetNrSuffix
                 toBlank:
                   type: boolean
                   description: |
@@ -1207,7 +1207,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/streetType
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/streetType
                 toBlank:
                   type: boolean
                   description: |
@@ -1224,7 +1224,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/code_insee
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/code_insee
             "building.address.code_hexacle":
               $ref: "#/components/schemas/IssueArray"
               description: |
@@ -1234,7 +1234,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/code_hexacle
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/code_hexacle
             "building.address.code_hexacle_voie":
               $ref: "#/components/schemas/Issue"
               description: |
@@ -1244,7 +1244,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/code_hexacle_voie
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/code_hexacle_voie
                 toBlank:
                   type: boolean
                   description: |
@@ -1267,7 +1267,7 @@ components:
               properties:
                 value:
                   items:
-                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/code_ban
+                    $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/GeographicAddress.openapi.yaml#/components/schemas/GeographicAddress/properties/code_ban
                 toBlank:
                   type: boolean
                   description: |
@@ -1283,7 +1283,7 @@ components:
                 Ce champ est nommé `ReferencePM` dans le fichier IPE.
               properties:
                 value:
-                  $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Interop.openapi.yaml#/components/schemas/PM/properties/id
+                  $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/PM/properties/id
 
     AnomalieAdresseUpdateNbLogements:
       description: |
@@ -1317,7 +1317,7 @@ components:
 
     Building:
       allOf:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Interop.openapi.yaml#/components/schemas/Building
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/Building
       properties:
         id:
           description: |
@@ -1335,10 +1335,10 @@ components:
             - code_insee
         realEstateDeveloper:
           description: Promoteur immobilier.
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Company.openapi.yaml#/components/schemas/Company
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Company.openapi.yaml#/components/schemas/Company
         realEstateLessor:
           description: Bailleur.
-          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Company.openapi.yaml#/components/schemas/Company
+          $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Company.openapi.yaml#/components/schemas/Company
         plot:
           description: Parcelle cadastrale.
           type: string
@@ -1382,7 +1382,7 @@ components:
 
     Note:
       allOf:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Note.openapi.yaml#/components/schemas/Note
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Note.openapi.yaml#/components/schemas/Note
       properties:
         relatedEntity:
           description: |
@@ -1398,7 +1398,7 @@ components:
 
     Attachment:
       allOf:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/Attachment.openapi.yaml#/components/schemas/Attachment
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Attachment.openapi.yaml#/components/schemas/Attachment
       description: |
         An attachment is a file that is attached to an entity.
 
@@ -1447,14 +1447,14 @@ components:
 
     AttachmentFormData:
       allOf:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/tools/attachment/attachment.openapi.yaml#/components/schemas/AttachmentFormData
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/tools/attachment/attachment.openapi.yaml#/components/schemas/AttachmentFormData
       properties:
         attachment:
           $ref: "#/components/schemas/Attachment"
 
     Event:
       allOf:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/CloudEvent.openapi.yaml#/components/schemas/CloudEvent
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/CloudEvent.openapi.yaml#/components/schemas/CloudEvent
       required:
         - time
         - subject
@@ -1481,7 +1481,7 @@ components:
 
     RelatedBuilding:
       allOf:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/RelatedEntity.openapi.yaml#/components/schemas/RelatedEntity
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/RelatedEntity.openapi.yaml#/components/schemas/RelatedEntity
       properties:
         "@referredType":
           type: string
@@ -1494,7 +1494,7 @@ components:
 
     RelatedAnomalie:
       allOf:
-        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/v1/common/schemas/RelatedEntity.openapi.yaml#/components/schemas/RelatedEntity
+        - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/RelatedEntity.openapi.yaml#/components/schemas/RelatedEntity
       properties:
         "@referredType":
           type: string
