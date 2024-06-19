@@ -1384,58 +1384,61 @@ components:
     Attachment:
       allOf:
         - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Attachment.openapi.yaml#/components/schemas/Attachment
-      description: |
-        An attachment is a file that is attached to an entity.
-
-        Les extensions de fichier autorisées sont:
-
-        * `csv`
-        * `jpeg`
-        * `jpg`
-        * `png`
-        * `svg`
-        * `pdf`
-        * `ods`
-        * `odt`
-        * `xlsx`
-        * `docx`
-
-        Les fichiers contenant du code exécutable comme des scripts ou des macros sont interdits.
-      properties:
-        mimeType:
-          enum:
-            - text/csv
-            - image/jpeg
-            - image/png
-            - image/svg+xml
-            - application/pdf
-            - application/vnd.oasis.opendocument.spreadsheet
-            - application/vnd.oasis.opendocument.text
-            - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-            - application/vnd.openxmlformats-officedocument.wordprocessingml.document
-        relatedEntity:
-          description: |
-            Relation entre l'attachment et l'anomalie.
-            Ce champ est renseigné par l'OI lors de la création de l'attachment.
-          type: array
-          minItems: 1
-          maxItems: 1
-          readOnly: true
-          items:
-            allOf:
-              - $ref: "#/components/schemas/RelatedAnomalie"
-        status:
-          enum:
-            - PENDING
-            - VALIDATED
-            - REJECTED
+        - description: |
+            An attachment is a file that is attached to an entity.
+    
+            Les extensions de fichier autorisées sont:
+    
+            * `csv`
+            * `jpeg`
+            * `jpg`
+            * `png`
+            * `svg`
+            * `pdf`
+            * `ods`
+            * `odt`
+            * `xlsx`
+            * `docx`
+    
+            Les fichiers contenant du code exécutable comme des scripts ou des macros sont interdits.
+          properties:
+            mimeType:
+              enum:
+                - text/csv
+                - image/jpeg
+                - image/png
+                - image/svg+xml
+                - application/pdf
+                - application/vnd.oasis.opendocument.spreadsheet
+                - application/vnd.oasis.opendocument.text
+                - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+            relatedEntity:
+              description: |
+                Relation entre l'attachment et l'anomalie.
+                Ce champ est renseigné par l'OI lors de la création de l'attachment.
+              type: array
+              minItems: 1
+              maxItems: 1
+              readOnly: true
+              items:
+                allOf:
+                  - $ref: "#/components/schemas/RelatedAnomalie"
+            status:
+              enum:
+                - PENDING
+                - VALIDATED
+                - REJECTED
 
     AttachmentFormData:
       allOf:
         - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/tools/attachment/attachment.openapi.yaml#/components/schemas/AttachmentFormData
-      properties:
-        attachment:
-          $ref: "#/components/schemas/Attachment"
+        -
+          required:
+            - attachment
+          properties:
+            attachment:
+              $ref: "#/components/schemas/Attachment"
 
     Event:
       allOf:
