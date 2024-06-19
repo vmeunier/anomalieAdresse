@@ -1462,8 +1462,6 @@ components:
             - $ref: "#/components/schemas/AnomalieAdresseBase"
             - $ref: "#/components/schemas/Note"
             - $ref: "#/components/schemas/Attachment"
-          discriminator:
-            propertyName: "@type"
 
     RelatedBuilding:
       allOf:
