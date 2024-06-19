@@ -1452,28 +1452,49 @@ components:
     Event:
       allOf:
         - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/CloudEvent.openapi.yaml#/components/schemas/CloudEvent
-      required:
-        - time
-        - subject
-      properties:
-        subject:
-          description: Identifiant unique de l'anomalie.
-          type: string
-          format: uuid
-        type:
-          enum:
-            - fr.interop.anomalieadresse.update
-            - fr.interop.anomalieadresse.note.create
-            - fr.interop.anomalieadresse.attachment.create
-            - fr.interop.anomalieadresse.attachment.update
-        datacontenttype:
-          type: string
-          default: "application/json"
-        data:
-          oneOf:
-            - $ref: "#/components/schemas/AnomalieAdresseBase"
-            - $ref: "#/components/schemas/Note"
-            - $ref: "#/components/schemas/Attachment"
+        - discriminator:
+            propertyName: type
+            mapping:
+              fr.interop.anomalieadresse.update: "#/components/schemas/EventAnomalieAdresse"
+              fr.interop.anomalieadresse.note.create: "#/components/schemas/EventAnomalieAdresseNote"
+              fr.interop.anomalieadresse.attachment.create: "#/components/schemas/EventAnomalieAdresseAttachment"
+              fr.interop.anomalieadresse.attachment.update: "#/components/schemas/EventAnomalieAdresseAttachment"
+          required:
+            - time
+            - subject
+            - type
+          properties:
+            subject:
+              description: Identifiant unique de l'anomalie.
+              type: string
+              format: uuid
+            type:
+              type: string
+            datacontenttype:
+              type: string
+              default: "application/json"
+              example: "application/json"
+
+    EventAnomalieAdresse:
+      allOf:
+        - $ref: "#/components/schemas/Event"
+        - properties:
+            data:
+              $ref: "#/components/schemas/AnomalieAdresseBase"
+
+    EventAnomalieAdresseNote:
+      allOf:
+        - $ref: "#/components/schemas/Event"
+        - properties:
+            data:
+              $ref: "#/components/schemas/Note"
+
+    EventAnomalieAdresseAttachment:
+      allOf:
+        - $ref: "#/components/schemas/Event"
+        - properties:
+            data:
+              $ref: "#/components/schemas/Attachment"
 
     RelatedBuilding:
       allOf:
