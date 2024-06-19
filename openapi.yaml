@@ -1433,12 +1433,11 @@ components:
     AttachmentFormData:
       allOf:
         - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/tools/attachment/attachment.openapi.yaml#/components/schemas/AttachmentFormData
-        -
-          required:
-            - attachment
-          properties:
-            attachment:
-              $ref: "#/components/schemas/Attachment"
+      required:
+        - attachment
+      properties:
+        attachment:
+          $ref: "#/components/schemas/Attachment"
 
     Event:
       allOf:
