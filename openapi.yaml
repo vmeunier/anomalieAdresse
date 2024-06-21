@@ -352,7 +352,7 @@ tags:
 paths:
   /anomalie-adresse:
     get:
-      operationId: getAllTroubleTickets
+      operationId: getAllAnomalieAdresses
       tags:
         - TroubleTicket
         - OI
@@ -396,7 +396,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
-      operationId: countTroubleTickets
+      operationId: countAnomalieAdresses
       summary: Count the number of trouble tickets
       description: Count the number of trouble tickets matching the given criteria.
       parameters:
@@ -415,7 +415,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
-      operationId: createTroubleTicket
+      operationId: createAnomalieAdresse
       summary: Create a trouble ticket
       description: Create a trouble ticket
       requestBody:
@@ -456,7 +456,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
-      operationId: getTroubleTicket
+      operationId: getAnomalieAdresse
       summary: Get a trouble ticket
       description: Get a trouble ticket
       parameters:
@@ -488,7 +488,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
-      operationId: updateTroubleTicket
+      operationId: updateAnomalieAdresse
       summary: Update a trouble ticket
       description: Update a trouble ticket
       requestBody:
@@ -514,7 +514,7 @@ paths:
       tags:
         - TroubleTicket
         - OI
-      operationId: partialUpdateTroubleTicket
+      operationId: partialUpdateAnomalieAdresse
       summary: Partially update a trouble ticket
       description: Partially update a trouble ticket
       requestBody:
@@ -544,7 +544,7 @@ paths:
       tags:
         - Note
         - OI
-      operationId: getTroubleTicketNotes
+      operationId: getAnomalieAdresseNotes
       summary: Get all notes of a trouble ticket
       description: Get all notes of a trouble ticket
       parameters: *searchAndPaginateParameters
@@ -571,7 +571,7 @@ paths:
       tags:
         - Note
         - OI
-      operationId: countTroubleTicketNotes
+      operationId: countAnomalieAdresseNotes
       summary: Count the number of notes of a trouble ticket
       description: Count the number of notes of a trouble ticket matching the given criteria.
       parameters:
@@ -591,7 +591,7 @@ paths:
       tags:
         - Note
         - OI
-      operationId: createTroubleTicketNote
+      operationId: createAnomalieAdresseNote
       summary: Create a note for a trouble ticket
       description: Create a note for a trouble ticket
       requestBody:
@@ -624,7 +624,7 @@ paths:
       tags:
         - Attachment
         - OI
-      operationId: getTroubleTicketAttachments
+      operationId: getAnomalieAdresseAttachments
       summary: Get all attachments of a trouble ticket
       description: Get all attachments of a trouble ticket
       parameters: *searchAndPaginateParameters
@@ -651,7 +651,7 @@ paths:
       tags:
         - Attachment
         - OI
-      operationId: countTroubleTicketAttachments
+      operationId: countAnomalieAdresseAttachments
       summary: Count the number of attachments of a trouble ticket
       description: Count the number of attachments of a trouble ticket matching the given criteria.
       parameters:
@@ -671,7 +671,7 @@ paths:
       tags:
         - Attachment
         - OI
-      operationId: createTroubleTicketAttachment
+      operationId: createAnomalieAdresseAttachment
       summary: Create an attachment for a trouble ticket
       description: Create an attachment for a trouble ticket
       requestBody:
@@ -705,7 +705,7 @@ paths:
       tags:
         - Attachment
         - OI
-      operationId: downloadTroubleTicketAttachment
+      operationId: downloadAnomalieAdresseAttachment
       summary: Download an attachment of a trouble ticket
       description: Download an attachment of a trouble ticket
       parameters:
@@ -733,7 +733,7 @@ paths:
       tags:
         - Event
         - OI
-      operationId: getTroubleTicketEvents
+      operationId: getAnomalieAdresseEvents
       summary: Get all events of all trouble tickets
       description: Get all events of all trouble tickets
       parameters: *searchAndPaginateParameters
@@ -759,7 +759,7 @@ paths:
       tags:
         - Event
         - OI
-      operationId: countTroubleTicketEvents
+      operationId: countAnomalieAdresseEvents
       summary: Count the number of events of all trouble tickets
       description: Count the number of events of all trouble tickets matching the given criteria.
       parameters:
@@ -778,7 +778,7 @@ paths:
       tags:
         - Event
         - OC
-      operationId: receiveTroubleTicketEvent
+      operationId: receiveAnomalieAdresseEvent
       summary: Receive an event for a trouble ticket
       description: Receive an event for a trouble ticket
       requestBody:
