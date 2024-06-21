@@ -995,6 +995,7 @@ components:
           $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/CodeOperateurArcep
         externalId:
           description: Référence interne du ticket de l'OC.
+          type: string
         ticketType:
           description: |
             Types de ticket.
@@ -1326,20 +1327,17 @@ components:
     Building:
       allOf:
         - $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Interop.openapi.yaml#/components/schemas/Building
+      description: "Pour l'adresse, a minima les champs `city`, `postcode` et `code_insee` doivent être renseignés."
       properties:
         id:
           description: |
             Identifiant unique de l'immeuble.
 
             La valeur est renseignée par l'OI à la résolution du ticket.
+          type: string
           readOnly: true
         neighbor:
           $ref: "#/components/schemas/RelatedBuilding"
-        address:
-          required:
-            - city
-            - postcode
-            - code_insee
         realEstateDeveloper: # Promoteur immobilier
           $ref: https://raw.githubusercontent.com/vmeunier/before-interop-common/passage-openapi-3-0-3/common/schemas/Company.openapi.yaml#/components/schemas/Company
         realEstateLessor: # Bailleur
@@ -1525,3 +1523,4 @@ components:
           default: "anomalie"
         id:
           description: Identifiant unique de l'anomalie.
+          type: string
